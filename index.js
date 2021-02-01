@@ -2,6 +2,8 @@ const fs = require("fs");
 
 const inquirer = require("inquirer"); 
 
+const createMarkdown = require("./utils/createMarkdown").default;
+
 inquirer.prompt([
 
     {
@@ -26,14 +28,15 @@ inquirer.prompt([
     },
     {
         type:"input",
-        message:"Please provide example of how your project could be used.",
-        name:"usage"
-    },
-    {
-        type:"input",
         message:"What are the steps required to install your project?",
         name:"Install"
     },
+    {
+        type:"input",
+        message:"Please provide example of how your project could be used.",
+        name:"usage"
+    },
+   
     {
         type: "input",
         message:"What do users need to know about your repo? ",
@@ -58,4 +61,28 @@ inquirer.prompt([
     
   
 
-])
+]).then(response => {
+    const filename = `${response.projectName.toUpperCase()}.MD`;
+    fs.writeFile(filename, JSON.stringify(response, null, 2), err =>{
+        if(err) console.log(err);
+        else console.log("success!")
+    })
+});
+
+
+function promptUser(){
+    return inquirer.prompt()
+}
+
+function welcome(){
+    console.log("Hello,  I am The Generator of the README! ")
+try{
+    const answers = promptUser();
+    // const username = 
+    const readMe = createMarkdown(answers);
+}catch(err){
+    console.log(err);
+}
+}
+
+welcome();
