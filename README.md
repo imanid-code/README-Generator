@@ -2,7 +2,7 @@
 
 ## Description 
 
-This application uses the terminal to generate a good ```README.md``` through a series of questions, created in a markdown file. 
+When prompted with a series of questions in your integrated terminal , your input will generate a professional high-quality ```README.md```
 
 ---
 
@@ -19,8 +19,8 @@ This application uses the terminal to generate a good ```README.md``` through a 
 
 ## Installation 
 Using your integrated terminal : 
-1. Clone key into terminal. 
-2. Add node(using terminal).
+1. Clone keys. 
+2. Add node to your device.
 3. "npm init" (installs package.json).
 4. "npm i(short for install) inquirer" 
 
